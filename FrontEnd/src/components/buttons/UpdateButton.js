@@ -8,7 +8,7 @@ const UpdateButton = ({ updateMovie, movie }) => {
         class="btn btn-info btn-sm float-right"
         onClick={() => updateMovie(movie)}
       >
-        {movie.watched ? "Unwatched" : "Watched"}
+        {movie.watched ? "Not done" : "Done"}
       </button>
     </div>
   );

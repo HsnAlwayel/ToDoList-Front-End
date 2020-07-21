@@ -5,8 +5,8 @@ import movieStore from "../store/MovieStore";
 // libray
 import { observer } from "mobx-react";
 //component
-import Searchbar from "./SearchBar";
 import MovieItem from "./MovieItem";
+import AddButton from "./buttons/AddButton";
 
 const MovieList = () => {
   let newMovie = "";
@@ -33,20 +33,13 @@ const MovieList = () => {
     <div className="container">
       <div align="center">
         <input onChange={(event) => (newMovie = event.target.value)} />
-        <button
-          type="button"
-          class="btn btn-dark"
-          onClick={() => movieStore.createMovie(newMovie)}
-        >
-          add
-        </button>
+        <AddButton />
       </div>
       <div className="container-fluid ">
         <div className="row">
           <div className="list-group col-lg-6 col-md-6 col-sm-12">
-            <Searchbar setQuery={setQuery1} />
             <h5 className="list-group-item active">
-              {movieList.length ? "Watchlist" : "No Movies To Watch"}
+              {movieList.length ? "ToDo" : "Nothing to do"}
               <span className="badge badge-dark badge-pill">
                 {movieList.length}
               </span>
@@ -55,9 +48,8 @@ const MovieList = () => {
             {movieList}
           </div>
           <div className="list-group col-lg-6 col-md-6 col-sm-12">
-            <Searchbar setQuery={setQuery2} />
             <h5 className="list-group-item active">
-              {watchedList.length ? "Watched" : "No Movies To Watched"}
+              {watchedList.length ? "Done" : "Everything is Done"}
               <span className="badge badge-dark badge-pill">
                 {watchedList.length}
               </span>
