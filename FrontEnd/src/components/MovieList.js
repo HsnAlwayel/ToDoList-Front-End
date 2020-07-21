@@ -10,13 +10,12 @@ import AddButton from "./buttons/AddButton";
 
 const MovieList = () => {
   let newMovie = "";
-  const [query1, setQuery1] = useState("");
-  const [query2, setQuery2] = useState("");
+
 
   const movieList = movieStore.movies
     .filter(
       (movie) =>
-        movie.name.toLowerCase().includes(query1.toLowerCase()) &&
+        movie.name &&
         movie.watched === false
     )
     .map((movie) => <MovieItem movie={movie} key={movie.id} />);
@@ -24,7 +23,7 @@ const MovieList = () => {
   const watchedList = movieStore.movies
     .filter(
       (movie) =>
-        movie.name.toLowerCase().includes(query2.toLowerCase()) &&
+        movie.name &&
         movie.watched === true
     )
     .map((movie) => <MovieItem movie={movie} key={movie.name} />);

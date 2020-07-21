@@ -1,30 +1,30 @@
 const movies = [
   {
     id: 1,
-    name: "Interstellar",
+    name: "Wash Car",
     watched: true,
-    description: "",
+    description: "something",
     date: "",
   },
   {
     id: 2,
     name: "The Departed",
     watched: false,
-    description: "",
+    description: "something",
     date: "",
   },
   {
     id: 3,
     name: "Shrek",
     watched: false,
-    description: "",
+    description: "something",
     date: "",
   },
   {
     id: 4,
     name: "Godfather",
     watched: true,
-    description: "",
+    description: "something",
     date: "",
   },
 ];

@@ -10,7 +10,9 @@ class MovieStore {
   createMovie = (newMovie) => {
     const addedMovie = {
       id: 0,
-      name: newMovie,
+      name: newMovie.name,
+      description: newMovie.description,
+      date: newMovie.date,
       watched: false,
     };
     addedMovie.id = this.movies.length

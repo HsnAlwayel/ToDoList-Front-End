@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 // Stores
-import MovieStore from "../store/MovieStore";
+import movieStore from "../store/MovieStore";
 
 
 const customStyles = {
@@ -16,9 +16,9 @@ const customStyles = {
     }
 };
 
-const MovieModal = ({ isOpen, closeModal, oldMovie }) => {
+const MovieModal = ({ isOpen, closeModal }) => {
     const [movie, setMovie] = useState(
-        oldMovie ? oldMovie : {
+        {
             name: "",
             description: "",
             date: "",
@@ -29,7 +29,7 @@ const MovieModal = ({ isOpen, closeModal, oldMovie }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        MovieStore[oldMovie ? "updateMovie" : "createMovie"](movie);
+        movieStore.createMovie(movie);
         closeModal();
     };
 
@@ -52,20 +52,15 @@ const MovieModal = ({ isOpen, closeModal, oldMovie }) => {
                     <label>Description</label>
                     <input type="text" name="description" className="form-control" onChange={handleChange} required value={movie.description} />
                 </div>
-                <div class="form-group row">
-                    <label >Date and time</label>
+                <div className="form-group row">
+                    <label for="example-date-input" className="col-2 col-form-label">Date</label>
                     <div class="col-10">
-                        <input type="datetime-local" className="form-control" onChange={handleChange} value={movie.date} />
+                        <input className="form-control" name="date" type="date" onChange={handleChange} />
                     </div>
                 </div>
-
-                <button
-                    type="button"
-                    class="btn btn-dark"
-
-                >
+                <button>
                     add
-        </button>
+                </button>
             </form>
         </Modal >
     )
