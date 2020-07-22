@@ -1,15 +1,13 @@
 import React from "react";
-// styles
 
-import { UpdateButtonStyled } from "../../styles";
-import movieStore from "../../store/MovieStore";
+import taskStore from "../../store/TaskStore";
 
-const DeleteButton = ({ movie }) => {
+const DeleteButton = ({ task }) => {
   return (
     <button
       type="button"
       class="btn btn-danger btn-sm float-right "
-      onClick={() => movieStore.deleteMovie(movie)}
+      onClick={() => taskStore.deleteTask(task.id)}
     >
       Delete
     </button>

@@ -1,10 +1,8 @@
 import React from "react";
-import movieStore from "./store/MovieStore";
-import styled from "styled-components";
-import { List } from "./styles";
-import MovieList from "./components/MovieList";
+
+import TaskList from "./components/TaskList";
 
 function App() {
-  return <MovieList />;
+  return <TaskList />;
 }
 export default App;

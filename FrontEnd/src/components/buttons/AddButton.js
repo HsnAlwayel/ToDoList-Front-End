@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //Components
-import MovieModal from "../../modal/MovieModal";
+import TaskModal from "../../modal/TaskModal";
 
 const AddButton = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const AddButton = () => {
                 size="2em"
                 onClick={() => setIsOpen(true)}
             />
-            <MovieModal isOpen={isOpen} closeModal={closeModal} />
+            <TaskModal isOpen={isOpen} closeModal={closeModal} />
         </>
     );
 };

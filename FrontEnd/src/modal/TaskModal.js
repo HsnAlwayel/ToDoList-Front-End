@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 
 // Stores
-import movieStore from "../store/MovieStore";
+import taskStore from "../store/TaskStore";
 
 
 const customStyles = {
@@ -16,8 +16,8 @@ const customStyles = {
     }
 };
 
-const MovieModal = ({ isOpen, closeModal }) => {
-    const [movie, setMovie] = useState(
+const TaskModal = ({ isOpen, closeModal }) => {
+    const [task, setTask] = useState(
         {
             name: "",
             description: "",
@@ -25,11 +25,11 @@ const MovieModal = ({ isOpen, closeModal }) => {
         }
     )
 
-    const handleChange = (event) => setMovie({ ...movie, [event.target.name]: event.target.value });
+    const handleChange = (event) => setTask({ ...task, [event.target.name]: event.target.value });
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        movieStore.createMovie(movie);
+        taskStore.createTask(task);
         closeModal();
     };
 
@@ -45,16 +45,16 @@ const MovieModal = ({ isOpen, closeModal }) => {
                 <div className="form-group row">
                     <div className="col-6">
                         <label>Name</label>
-                        <input type="text" name="name" className="form-control" onChange={handleChange} required value={movie.name} />
+                        <input type="text" name="name" className="form-control" onChange={handleChange} required value={task.name} />
                     </div>
                 </div>
                 <div className="form-group">
                     <label>Description</label>
-                    <input type="text" name="description" className="form-control" onChange={handleChange} required value={movie.description} />
+                    <input type="text" name="description" className="form-control" onChange={handleChange} required value={task.description} />
                 </div>
                 <div className="form-group row">
                     <label for="example-date-input" className="col-2 col-form-label">Date</label>
-                    <div class="col-10">
+                    <div className="col-10">
                         <input className="form-control" name="date" type="date" onChange={handleChange} />
                     </div>
                 </div>
@@ -66,4 +66,4 @@ const MovieModal = ({ isOpen, closeModal }) => {
     )
 };
 
-export default MovieModal;
+export default TaskModal;

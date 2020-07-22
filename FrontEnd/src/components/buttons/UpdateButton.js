@@ -1,14 +1,15 @@
 import React from "react";
-import { UpdateButtonStyled } from "../../styles";
-const UpdateButton = ({ updateMovie, movie }) => {
+import taskStore from "../../store/TaskStore";
+
+const UpdateButton = ({ updateTask, task }) => {
   return (
     <div>
       <button
         type="button"
         class="btn btn-info btn-sm float-right"
-        onClick={() => updateMovie(movie)}
+        onClick={() => taskStore.updateTask(task)}
       >
-        {movie.watched ? "Not done" : "Done"}
+        {task.done ? "Not done" : "Done"}
       </button>
     </div>
   );
